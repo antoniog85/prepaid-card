@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<ruleset>
+ <file>app/</file>
+ <file>src</file>
+ <file>tests</file>
+
+ <arg name="basepath" value="."/>
+ <arg name="colors" />
+ <arg name="parallel" value="75" />
+ <arg value="np"/>
+
+ <rule ref="PSR2" />
+
+ <!-- Check var names, but we don't want leading underscores for private vars -->
+ <rule ref="Squiz.NamingConventions.ValidVariableName.PrivateNoUnderscore">
+  <severity>0</severity>
+ </rule>
+
+ <!-- Only one argument per line in multi-line function calls -->
+ <rule ref="PEAR.Functions.FunctionCallSignature">
+  <properties>
+   <property name="allowMultipleArguments" value="false"/>
+  </properties>
+ </rule>
+
+ <!-- Private methods MUST not be prefixed with an underscore -->
+ <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+  <type>error</type>
+ </rule>
+
+ <!-- Private properties MUST not be prefixed with an underscore -->
+ <rule ref="PSR2.Classes.PropertyDeclaration.Underscore">
+  <type>error</type>
+ </rule>
+</ruleset>

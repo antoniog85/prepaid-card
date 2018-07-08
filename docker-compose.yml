@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  web:
+    container_name: prepaidcard_web
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www
+      - ./provision/vhost.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - php
+      - redis
+  redis:
+    container_name: prepaidcard_redis
+    image: redis
+    ports:
+      - "6379:6379"
+  php:
+    container_name: prepaidcard_php
+    image: php:7.2-fpm
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "127.0.0.1:10000:9000"
