@@ -70,27 +70,6 @@ curl -X GET \
 }
 ```
 
-### Check card statement
-
-```bash
-curl -X GET \
-  http://localhost:8080/card/{card-id}/statement \
-  -H 'cache-control: no-cache'
-```
-```bash
-[
-    {
-        "ledger-id": "ca09a197-aade-4047-8e9a-81b0168c527c",
-        "transaction-id": "0dfaad15-508e-47ea-af16-f0f79b230525",
-        "date": "2018-07-08T14:42:38+00:00",
-        "credit": "0",
-        "debit": "0",
-        "blocked": "10",
-        "description": "authorization request sent"
-    }
-]
-```
-
 ### List card transactions
 
 ```bash
